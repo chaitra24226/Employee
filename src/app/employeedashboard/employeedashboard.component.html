@@ -1,0 +1,84 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="text-align: center;justify-content: center; color: aliceblue;">CERAMICS Pvt. Ltd Company</h1> 
+        
+        <div class="d-flex">
+            <button (click)="clickAdd()" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Employee</button>
+        </div>
+    </div>
+  
+</nav>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th  scope="col">Serial No.</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of Employedata">
+            <td>{{row.id}}</td>
+            <td>{{row.firstname}}</td>
+            <td>{{row.lastname}}</td>
+            <td>{{row.contactno}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.empid}}</td>
+            <td>
+                <button (click)="onEdit(row)" class="btn btn-info mx-3" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                <button (click)="deleteEmployee(row)"  class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label class="form-label">First Name</label>
+                  <input type="text"formControlName="firstname" class="form-control">
+                  
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" formControlName="lastname" class="form-control">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Contact Number</label>
+                    <input type="text" pattern="[0-9](10)" placeholder="Please enter 10 digit number" formControlName="contactno" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Email ID</label>
+                   
+                   <input type="email" id="email" required name="email" formControlName="email" class="form-control">
+                   <label>Please enter a valid email address.</label>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Employee ID</label>
+                    <input type="text" class="form-control"formControlName="empid">
+                  </div>
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="postEmployeeDetails()">Submit</button>
+          <button type="button" *ngIf="showUpdate" class="btn btn-primary" (click)="updateEmployee()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

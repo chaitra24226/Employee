@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 6,
+      "firstname": "haritha",
+      "lastname": "naidu",
+      "contactno": "9632587410",
+      "email": "haritha2@gmail.com",
+      "empid": "e009"
+    },
+    {
+      "id": 7,
+      "firstname": "ganga",
+      "lastname": "f",
+      "contactno": "7894561230",
+      "email": "ganga@gmail.com",
+      "empid": "e010"
+    },
+    {
+      "id": 8,
+      "firstname": "milton",
+      "lastname": "g",
+      "contactno": "8963963602",
+      "email": "mgmilton@gmail.com",
+      "empid": "e011"
+    },
+    {
+      "id": 9,
+      "firstname": "fd",
+      "lastname": "fdf",
+      "contactno": "7894562103",
+      "email": "fdd@gmail.com",
+      "empid": "e125"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
